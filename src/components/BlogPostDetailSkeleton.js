@@ -1,17 +1,14 @@
-
 const BlogPostDetailSkeleton = () => {
-    return (
-        <>
-        <div className="headerSkeleton">
-
-       </div>
-       <div className="detailSkeleton">
-        <div className="title" />
-        < div className="imgskeleton"   />
+  return (
+    <>
+      <div className="headerSkeleton"></div>
+      <div className="detailSkeleton">
+        <div className="titleSkeleton" />
+        <div className="imgSkeleton" />
         <div className="descriptionSkeleton" />
-        </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
-export default BlogPostDetailSkeleton
+export default BlogPostDetailSkeleton;

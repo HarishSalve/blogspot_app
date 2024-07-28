@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, Tooltip } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
@@ -23,27 +23,29 @@ const BlogPostDetail = () => {
     getDetail();
   }, [id]);
 
-  const { title, author, publishedAt, description, urlToImage, url, source } =
+  const { title, author, publishedAt, description, urlToImage, url } =
     blogDetail || {};
-    const articleDate = publishedAt?.split("T")[0];
-console.log(blogDetail)
-    if(!Object.keys(blogDetail)){
-      return <BlogPostDetailSkeleton />
-    }
+  const articleDate = publishedAt?.split("T")[0];
+
+  if (!Object.keys(blogDetail).length) {
+    return <BlogPostDetailSkeleton />;
+  }
 
   return (
     <>
       <div>
         <div className={"header"}>
           <img src={computerIcon} alt="blogDetail" className="blogIcon" />
-          <Typography variant="h3" fontFamily={"roboto"}>
+          <Typography variant="h3" fontFamily={"roboto"} color={"white"}>
             Tech Blogs!
           </Typography>
         </div>
         <div className="backBtn">
-          <Button variant="text" onClick={() => navigate("/")}>
-            <img src={backIcon} alt={"back"} className="backIcon" />
-          </Button>
+          <Tooltip title={"Back TO Post"}>
+            <Button variant="text" onClick={() => navigate("/")}>
+              <img src={backIcon} alt={"back"} className="backIcon" />
+            </Button>
+          </Tooltip>
         </div>
       </div>
       <div className="blogDetailContainer">
@@ -56,12 +58,20 @@ console.log(blogDetail)
               <Typography variant="caption">NEWS</Typography>
             </Button>
           </Link>
-          By
-          <Typography variant="caption" color={"#E94E1B"}>
-            &nbsp;{author}
-          </Typography>
-          &nbsp; |
-          <Typography variant="caption"> Published at {articleDate}</Typography>
+          {author && (
+            <div>
+              By
+              <Typography variant="caption" color={"#E94E1B"}>
+                &nbsp;{author}
+              </Typography>
+              &nbsp; |
+            </div>
+          )}
+          <div>
+            <Typography variant="caption">
+              &nbsp;Published at {articleDate}
+            </Typography>
+          </div>
         </div>
         <img
           src={urlToImage ?? defaultImage}
