@@ -1,38 +1,212 @@
-.App {
-  text-align: center;
+
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ededed;
+  padding: 10px;
+  border: 2px solid #f0f0f0;
+  border-radius: 5px;
+  max-width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.blogIcon{
+  width: 44px;
+  height: 42px;
+  margin: 0 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.containerClass{
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+.blogContainer{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card{
+  width: 305px;
+  height: 380px;
+  margin: 5px;
+  padding-bottom: 2px;
+
+}
+
+.cardContentDesign{
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.cardContentDesign:hover{
+  background-color: #0c0b0b1a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.linkClass{
+  text-decoration: none;
+}
+
+.blogDetailContainer{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 20px;
+
+}
+
+.backBtn button{
+  min-width: 40px;
+  margin: 20px 20px 0 !important;
+  padding:0 !important;
+}
+.backIcon{
+  width:40px;
+  height:40px;
+}
+
+.blogTitle{
+  font-family: system-ui !important;
+  font-weight: 500 !important;
+}
+
+.blogImg{
+  padding: 10px 0;
+  width: 100%;
+  height: 70vh;
+  object-fit: contain;
+}
+
+.newsBtn{
+  margin-right:5px !important;
+  color: #fff !important;
+  background-color: #E94E1B !important;
+}
+
+.articleDetail{
+  margin: 5px 0;
+}
+
+.fullBlogBtn{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.fullBlogBtn button {
+  margin: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.description p{
+  display: -webkit-box;
+  -webkit-line-clamp: 4; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100px; 
+  line-height: 1.5; /* Adjust based on the line height of your text */
+  max-height: calc(1.5em * 5)
 }
+
+.cardTitle{
+  display: -webkit-box;
+  max-height: 96px;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardDefaultImg{
+  object-fit: contain !important;
+}
+
+.errorClass{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.paginationClass {
+  width: 100%;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationClass .MuiButtonBase-root.Mui-selected, .MuiButtonBase-root.MuiPaginationItem-previousNext {
+  background-color: #635f5ee6 !important;
+}
+
+
+/* CSS for Card Skeleton */
+.shimmerContainer{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  /* border: 2px solid black; */
+}
+.cardSkeleton{
+  width: 345px;
+  height: 380px;
+  margin: 5px;
+  padding-bottom: 2px;
+  border: 2px solid #f0f0f0;
+  /* background-color: #f0f0f0; */
+}
+.cardImgSkeleton{
+  width: 100%;
+  height: 140px;
+  background-color: #f0f0f0f0;
+}
+
+.cardHeadingSkeleton{
+  margin: 12px;
+  width: 90%;
+  height: 90px;
+  background-color: #f0f0f0;
+}
+.cardTextSkeleton{
+  margin: 12px;
+  width: 90%;
+  height: 90px;
+  background-color: #f0f0f0;
+}
+
+.headerSkeleton{
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 100%;
+  background-color: #f0f0f0;
+}
+
+.detailSkeleton{
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 20px;
+}
+
+.titleSkeleton{
+  height: 50px;
+  background-color: #f0f0f0;
+}
+.imgSkeleton{
+  width: 100%;
+  height: 70vh;
+  background-color: #f0f0f0;
+  padding: 10px 0;
+}
+
+.descriptionSkeleton{
+  height: 50px;
+  background-color: #f0f0f0;
+margin: 10px;
+}
+
