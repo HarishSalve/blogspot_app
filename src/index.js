@@ -14,6 +14,7 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    baseName: "/blogspot_app",
     children:[
       {
         path: "/",
