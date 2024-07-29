@@ -14,11 +14,16 @@ const BlogPostDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [blogDetail, setBlogDetail] = useState({});
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const getDetail = async () => {
-      const article = await fetchBlogDetail(id);
-      setBlogDetail(article[0]);
+      try {
+        const article = await fetchBlogDetail(id);
+        setBlogDetail(article[0]);
+      } catch (error) {
+        setError("Oops! Failed to fetch data, Please try to refresh the page.");
+      }
     };
     getDetail();
   }, [id]);
@@ -26,6 +31,14 @@ const BlogPostDetail = () => {
   const { title, author, publishedAt, description, urlToImage, url } =
     blogDetail || {};
   const articleDate = publishedAt?.split("T")[0];
+
+  if (error) {
+    return (
+      <Typography variant="h6" color="error">
+        {error}
+      </Typography>
+    );
+  }
 
   if (!Object.keys(blogDetail).length) {
     return <BlogPostDetailSkeleton />;
@@ -41,7 +54,7 @@ const BlogPostDetail = () => {
           </Typography>
         </div>
         <div className="backBtn">
-          <Tooltip title={"Back TO Post"}>
+          <Tooltip title={"Back To Post"}>
             <Button variant="text" onClick={() => navigate("/")}>
               <img src={backIcon} alt={"back"} className="backIcon" />
             </Button>
@@ -79,7 +92,6 @@ const BlogPostDetail = () => {
           className={`${"blogImg"} ${!urlToImage ? "cardDefaultImg" : ""}`}
         />
         <Typography variant="body1">{description}</Typography>
-
         <div className="fullBlogBtn">
           <Link to={url} className="linkClass">
             <Button variant="contained" className="newsBtn">

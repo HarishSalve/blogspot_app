@@ -11,11 +11,16 @@ import { fetchData } from "../services/blogService";
 const BlogPostList = () => {
   const [blogData, setBlogData] = useState([]);
   const [page, setPage] = useState(1);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
-      const data = await fetchData(page);
-      setBlogData(data?.articles);
+      try {
+        const data = await fetchData(page);
+        setBlogData(data?.articles);
+      } catch (e) {
+        setError("Oops! Failed to fetch blogs, Please try again later.");
+      }
     };
     getData();
   }, [page]);
@@ -25,11 +30,17 @@ const BlogPostList = () => {
     window.scroll({ top: 0, behavior: "smooth" });
   };
 
-  if (blogData?.length === 0) {
-    return <BlogPostItemSkeleton />;
+  if (error) {
+    return (
+      <Typography variant="h6" color="error">
+        {error}
+      </Typography>
+    );
   }
 
-  return (
+  return blogData?.length === 0 ? (
+    <BlogPostItemSkeleton />
+  ) : (
     <div className="container">
       <div className={"header"}>
         <img src={blogLogo} alt="blogIcon" className="blogIcon" />
@@ -39,25 +50,23 @@ const BlogPostList = () => {
       </div>
       <Container className="containerClass">
         <div className="blogContainer">
-          {blogData?.map((blog) => (
-            <>
-              {blog?.title !== NO_DATA ? (
-                <Link
-                  to={`/post/${encodeURIComponent(blog?.url)}`}
-                  key={blog?.url}
-                  className={"linkClass"}
-                >
-                  <BlogPostItem
-                    articleData={blog}
-                    title={blog?.title}
-                    description={blog?.description}
-                    author={blog?.author}
-                    image={blog?.urlToImage}
-                  />
-                </Link>
-              ) : null}
-            </>
-          ))}
+          {blogData?.map((blog) =>
+            blog?.title !== NO_DATA ? (
+              <Link
+                to={`/post/${encodeURIComponent(blog?.url)}`}
+                key={blog?.url}
+                className={"linkClass"}
+              >
+                <BlogPostItem
+                  articleData={blog}
+                  title={blog?.title}
+                  description={blog?.description}
+                  author={blog?.author}
+                  image={blog?.urlToImage}
+                />
+              </Link>
+            ) : null
+          )}
         </div>
         <div className="paginationClass">
           <Pagination

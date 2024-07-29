@@ -10,7 +10,7 @@ const BlogPostItem = ({ articleData, title, description, author, image }) => {
           component="img"
           height="140"
           image={image || defaultImage}
-          className={{ cardDefaultImg: !image }}
+          className={!image ? "cardDefaultImg" : ""}
           alt={articleData?.source?.name ?? "noimage"}
         />
         <CardContent className="cardContentDesign">
