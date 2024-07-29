@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/blogspot_app/static/css/main.73532e01.css",
-    "main.js": "/blogspot_app/static/js/main.e28f3fcf.js",
+    "main.js": "/blogspot_app/static/js/main.6d5eaef9.js",
     "static/js/453.310e62b0.chunk.js": "/blogspot_app/static/js/453.310e62b0.chunk.js",
     "static/media/blog.png": "/blogspot_app/static/media/blog.840e2a3f5cac89661133.png",
     "static/media/responsive.png": "/blogspot_app/static/media/responsive.6139123b7277538ac19b.png",
     "static/media/blog1.png": "/blogspot_app/static/media/blog1.77f0024f554361d607fc.png",
     "index.html": "/blogspot_app/index.html",
     "main.73532e01.css.map": "/blogspot_app/static/css/main.73532e01.css.map",
-    "main.e28f3fcf.js.map": "/blogspot_app/static/js/main.e28f3fcf.js.map",
+    "main.6d5eaef9.js.map": "/blogspot_app/static/js/main.6d5eaef9.js.map",
     "453.310e62b0.chunk.js.map": "/blogspot_app/static/js/453.310e62b0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.73532e01.css",
-    "static/js/main.e28f3fcf.js"
+    "static/js/main.6d5eaef9.js"
   ]
 }
