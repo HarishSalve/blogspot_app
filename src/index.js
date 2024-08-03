@@ -4,17 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import BlogPostList from './components/BlogPostList'
-import {createBrowserRouter, createHashRouter, RouterProvider} from 'react-router-dom'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Error from './components/Error';
 import BlogPostDetail from './components/BlogPostDetail'
 
 
 
-const appRouter = createHashRouter([
+const appRouter = createBrowserRouter([
   {
-    path: "/*",
+    path: "/",
     element: <App />,
-    // baseName: "/blogspot_app",
     children:[
       {
         path: "/",
