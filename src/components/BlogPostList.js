@@ -42,12 +42,14 @@ const BlogPostList = () => {
     <BlogPostItemSkeleton />
   ) : (
     <div className="container">
-      <div className={"header"}>
-        <img src={blogLogo} alt="blogIcon" className="blogIcon" />
-        <Typography variant="h3" fontFamily={"serif"}>
-          BlogSpot
-        </Typography>
-      </div>
+      <Link to="/" className="headerLink" aria-label="Go to homepage">
+        <div className={"header"}>
+          <img src={blogLogo} alt="blogIcon" className="blogIcon" />
+          <Typography variant="h3" fontFamily={"serif"}>
+            BlogSpot
+          </Typography>
+        </div>
+      </Link>
       <Container className="containerClass">
         <div className="blogContainer">
           {blogData?.map((blog) =>

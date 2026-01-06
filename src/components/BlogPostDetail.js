@@ -47,12 +47,14 @@ const BlogPostDetail = () => {
   return (
     <>
       <div>
-        <div className={"header"}>
-          <img src={computerIcon} alt="blogDetail" className="blogIcon" />
-          <Typography variant="h3" fontFamily={"roboto"} color={"white"}>
-            Tech Blogs!
-          </Typography>
-        </div>
+        <Link to="/" className="headerLink" aria-label="Go to homepage">
+          <div className={"header"}>
+            <img src={computerIcon} alt="blogDetail" className="blogIcon" />
+            <Typography variant="h3" fontFamily={"roboto"} color={"white"}>
+              Tech Blogs!
+            </Typography>
+          </div>
+        </Link>
         <div className="backBtn">
           <Tooltip title={"Back To Post"}>
             <Button variant="text" onClick={() => navigate("/")}>
